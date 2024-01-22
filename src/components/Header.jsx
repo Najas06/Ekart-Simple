@@ -11,7 +11,10 @@ function Header() {
   // to access data inside store : useSelector hook
   const WishlistArray = useSelector((state) => state.wishlistReducer)
   console.log("===Wish Array====");
-  console.log(WishlistArray);
+  // console.log(WishlistArray);
+
+  const CartListArray = useSelector((state)=>state.cartReducer)
+  console.log(CartListArray);
   return (
     <div>
       <Navbar expand="lg" className="bg-warning position-fixed top-0 w-100" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", zIndex: "1" }}>
@@ -26,8 +29,8 @@ function Header() {
 
               <Nav.Link className='btn border rounded me-3 d-flex' style={{ width: "100%" }}><Link to={'/wishlist'} style={{ textDecoration: "none", color: "black" }}>Wishlist <Badge bg="secondary">{WishlistArray.length}</Badge>
               </Link></Nav.Link>
-
-              <Nav.Link className='btn border rounded d-flex' style={{ width: "100px" }}>Cart <Badge bg="secondary">20</Badge></Nav.Link>
+              
+              <Nav.Link className='btn border rounded d-flex' style={{ width: "100px" }}><Link to={'/cart'} style={{ textDecoration: "none", color: "black" ,display:"flex" }}>Cart <Badge bg="secondary">{CartListArray.length}</Badge></Link></Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
